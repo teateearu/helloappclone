@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react'
 import Webcam from 'react-webcam'
-import ShowImage from './ShowImage'
-import {BrowserRouter} from 'react-router-dom'
+
 
 class Camera extends PureComponent {
 
@@ -12,10 +11,13 @@ class Camera extends PureComponent {
 
   repeat =
       (ms, func) => {
-
+        var intervalID = 0
         new Promise(
           r => {
               intervalID = setInterval(func, ms),
+              setTimeout(() => {  clearInterval(intervalID)
+                                  console.log('repeat end')
+                               } , 10000),
               this.wait(ms).then(r)
           }
       )}
@@ -42,19 +44,12 @@ class Camera extends PureComponent {
 
                   dataURI = canvas.toDataURL('image/jpeg'),
                   console.log('repeating...'),
-                  console.log(dataURI)
+                  console.log(dataURI.substring(dataURI.length - 20, dataURI.length))
 
                   return dataURI
                 }
       )}
 
-  stopAfter10Secs =
-      () => new Promise(
-            r => r(setTimeout(() => {
-                                        clearInterval(intervalID)
-                                        console.log('repeat end')
-                                     } , 10000))
-                                )
 
 
   setRef = (camera) => {
@@ -63,10 +58,8 @@ class Camera extends PureComponent {
 
 
   capture = () => {
-    var intervalID = 0
+
     this.repeat(1000, () => Promise.all([this.takePhoto()])) // 1000 miliseconds = 1 second
-    .then(this.stopAfter10Secs())  // starts timer to end repetitions
-    .then(console.log('repeat start')) // informs that all actions were started correctly and we are waiting for them to finish
 
   }
 
