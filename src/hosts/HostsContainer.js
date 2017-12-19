@@ -1,22 +1,24 @@
 import React, { PureComponent } from 'react';
 import AutoComplete from 'material-ui/AutoComplete';
+import { connect } from 'react-redux'
 import './index.css'
-
-const hosts = [
-  'Lara / Event1',
-  'Robin / Event2',
-  'Daniil / Event3',
-  'Ha / Event4',
-  'Tea / Event5',
-  'Gabrijela / Event6'
-];
+// import hosts from '../reducers/hosts'
 
 /**
  * `AutoComplete` search text can be implemented as a controlled value,
  * where `searchText` is handled by state in the parent component.
  * This value is reset with the `onNewRequest` callback.
  */
-export default class SearchHost extends PureComponent {
+ const hosts = [
+   'Lara / Meeting1',
+   'Robin / Meeting2',
+   'Daniil / Meeting3',
+   'Ha / Meeting4',
+   'Tea / Meeting5',
+   'Gabrijela / Meeting6'
+ ];
+
+class HostsContainer extends PureComponent {
   state = {
     searchText: '',
   };
@@ -38,7 +40,7 @@ export default class SearchHost extends PureComponent {
       <div className="Host">
         <AutoComplete
           className="Lala"
-          hintText="Search host/event name"
+          hintText="Search host/meeting name"
           searchText={this.state.searchText}
           onUpdateInput={this.handleUpdateInput}
           onNewRequest={this.handleNewRequest}
@@ -50,3 +52,9 @@ export default class SearchHost extends PureComponent {
     );
   }
 }
+
+const mapStateToProps = ({ hosts }) => ({
+  hosts
+})
+
+export default connect(mapStateToProps)(HostsContainer)

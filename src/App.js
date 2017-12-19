@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SearchHost from './containers/searchHost'
+import HostsContainer from './hosts/HostsContainer'
 import PropTypes from 'prop-types'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import muiTheme from './assets/styles/theme'
@@ -18,7 +18,7 @@ class App extends Component {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <div>
-          <SearchHost />
+          <HostsContainer />
         </div>
       </MuiThemeProvider>
     )
