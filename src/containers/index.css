@@ -1,0 +1,11 @@
+.Host {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  margin: 0 auto;
+}
+
+.Host .Lala {
+  margin: 0 auto;
+  width:50%;
+}
