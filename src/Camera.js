@@ -1,8 +1,10 @@
 import React, { PureComponent } from 'react'
 import Webcam from 'react-webcam'
-
+import sendPhoto from './actions/sendPhoto'
+import { connect } from 'react-redux'
 
 class Camera extends PureComponent {
+
 
   wait =
       ms => new Promise(
@@ -45,7 +47,7 @@ class Camera extends PureComponent {
                   dataURI = canvas.toDataURL('image/jpeg'),
                   console.log('repeating...'),
                   console.log(dataURI.substring(dataURI.length - 20, dataURI.length))
-
+                  this.props.sendPhoto(dataURI)
                   return dataURI
                 }
       )}
@@ -79,4 +81,4 @@ class Camera extends PureComponent {
   }
 }
 
-export default Camera
+export default connect(null, { sendPhoto })(Camera)
