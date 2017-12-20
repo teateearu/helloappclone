@@ -1,23 +1,32 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux'
 import './index.css'
-import { ButtonGroup, DropdownButton, MenuItem } from 'react-bootstrap'
+import { DropdownButton, MenuItem } from 'react-bootstrap'
+import HostsDialog from './HostsDialog'
 
 class HostsContainer extends PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = { isOpen: false };
+  }
+
+  toggleModal = () => {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  }
 
   render() {
     return (
       <div>
-      <ButtonGroup>
-        <DropdownButton title="Choose your host" id="bg-nested-dropdown">
+        <DropdownButton title="Choose your host" id="bg-dropdown">
           <MenuItem eventKey="1">Lara</MenuItem>
           <MenuItem eventKey="2">Robin</MenuItem>
           <MenuItem eventKey="3">Daniil</MenuItem>
           <MenuItem eventKey="4">Ha</MenuItem>
           <MenuItem eventKey="5">Gabrijela</MenuItem>
-          <MenuItem eventKey="6">Tea</MenuItem>
+          <MenuItem onClick={this.toggleModal}>Tea</MenuItem>
         </DropdownButton>
-      </ButtonGroup>
       </div>
     );
   }

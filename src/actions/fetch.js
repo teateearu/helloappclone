@@ -1,4 +1,4 @@
-import ApiClient from '../../api/client'
+import ApiClient from '../api/client'
 // import loading from '../loading' // ???
 // import loadError from '../loadError' // ???
 export const FETCHED_HOSTS = 'FETCHED_HOSTS'
