@@ -1,35 +1,39 @@
 import React from 'react';
-import { Modal, Button } from 'react-bootstrap'
+import { Alert, Button } from 'react-bootstrap'
 import PropTypes from 'prop-types'
 
 export default class HostsDialog extends React.Component {
+  getInitialState() {
+    return {
+      alertVisible: true,
+    };
+  }
+
   render() {
-    if(!this.props.show) {
-      return null;
+    if (this.state.alertVisible) {
+      return (
+        <Alert bsStyle="danger" onDismiss={this.handleAlertDismiss}>
+          <h4>Oh snap! You got an error!</h4>
+          <p>Change this and that and try again. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.</p>
+          <p>
+            <Button bsStyle="danger">Take this action</Button>
+            <span> or </span>
+            <Button onClick={this.handleAlertDismiss}>Hide Alert</Button>
+          </p>
+        </Alert>
+      );
     }
 
-  return (
-    <div className="static-modal">
-      <Modal.Dialog>
-        <Modal.Header>
-          <Modal.Title>Please confirm your host</Modal.Title>
-        </Modal.Header>
+    return (
+      <Button onClick={this.handleAlertShow}>Show Alert</Button>
+    );
+  }
 
-        <Modal.Body>
-          You chose that host.
-        </Modal.Body>
+  handleAlertDismiss() {
+    this.setState({ alertVisible: false });
+  }
 
-        <Modal.Footer>
-          <Button>Back</Button>
-          <Button bsStyle="primary">Confirm</Button>
-        </Modal.Footer>
-
-      </Modal.Dialog>
-    </div>
-  );
+  handleAlertShow() {
+    this.setState({ alertVisible: true });
+  }
 }
-}
-Modal.propTypes = {
-  onClose: PropTypes.func.isRequired,
-  show: PropTypes.bool,
-};
