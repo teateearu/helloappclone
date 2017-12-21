@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react'
 import Webcam from 'react-webcam'
 import sendPhoto from './actions/sendPhoto'
 import { connect } from 'react-redux'
+import WelcomeMessage from './WelcomeMessage'
+import { push,replace } from 'react-router-redux'
 
 class Camera extends PureComponent {
 
@@ -66,7 +68,21 @@ class Camera extends PureComponent {
   }
 
   render() {
-    return (
+      const messageArr = this.props.messageArray
+      console.log("MessageObj ", messageArr)
+      if (messageArr.length === 10){
+        const nullArray = messageArr.filter(element => element.message ===  null)
+        const messageArray = messageArr.filter(element => element.message !==  null)
+        if (nullArray.length === 10){
+          const message = "No match found."
+          this.props.push(`/message/${message}`)
+        }
+        else if (messageArray.length > 0){
+          const message = messageArray[0].message
+          this.props.push(`/message/${message}`)
+        }
+      }
+        return (
       <div>
         <Webcam
           audio={false}
@@ -76,9 +92,14 @@ class Camera extends PureComponent {
           width={350}
         />
         <button onClick={this.capture}>Capture photo</button>
+
+
       </div>
     )
   }
 }
+const mapStateToProps = (state) => {
 
-export default connect(null, { sendPhoto })(Camera)
+  return { messageArray: state.photos}
+}
+export default connect(mapStateToProps, { sendPhoto, push })(Camera)
