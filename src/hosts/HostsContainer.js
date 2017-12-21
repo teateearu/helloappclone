@@ -2,30 +2,22 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux'
 import './index.css'
 import { DropdownButton, MenuItem } from 'react-bootstrap'
-import HostsDialog from './HostsDialog'
+// import HostsDialog from './HostsDialog'
+import fetchHosts from '../actions/fetch'
 
 class HostsContainer extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = { isOpen: false };
+  componentWillMount() {
+    this.props.dispatch(fetchHosts())
   }
-
-  toggleModal = () => {
-    this.setState({
-      isOpen: !this.state.isOpen
-    });
-  }
+  // giveDialog() {
+  //   return (HostsDialog);
+  // }
 
   render() {
     return (
       <div>
         <DropdownButton title="Choose your host" id="bg-dropdown">
-          <MenuItem eventKey="1">Lara</MenuItem>
-          <MenuItem eventKey="2">Robin</MenuItem>
-          <MenuItem eventKey="3">Daniil</MenuItem>
-          <MenuItem eventKey="4">Ha</MenuItem>
-          <MenuItem eventKey="5">Gabrijela</MenuItem>
-          <MenuItem onClick={this.toggleModal}>Tea</MenuItem>
+          { this.props.hosts.map((host,index) => <MenuItem key={ index }> { host.name } </MenuItem>) }
         </DropdownButton>
       </div>
     );

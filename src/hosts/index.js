@@ -1,5 +1,7 @@
 import HostsContainer from './HostsContainer'
+import HostsDialog from './HostsDialog'
 
 export {
-  HostsContainer
+  HostsContainer,
+  HostsDialog
 }

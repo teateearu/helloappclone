@@ -10,7 +10,10 @@ export default () => {
     // dispatch(loading(true)) // ???
 
     api.get('hosts')
-      .then(res => dispatch({ type: FETCHED_HOSTS, payload: res.body }))
+      .then(res => { console.log(res.body)
+        dispatch({ type: FETCHED_HOSTS, payload: res.body })
+      })
+
       //.catch(err => dispatch(loadError(err))) ???
 
     // dispatch(loading(false)) // ???

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Modal, Dialog, Header, Title, Button } from 'react-bootstrap'
-import PropTypes from 'prop-types';
+import { Modal, Button } from 'react-bootstrap'
+import PropTypes from 'prop-types'
 
 export default class HostsDialog extends React.Component {
   render() {
@@ -20,7 +20,7 @@ export default class HostsDialog extends React.Component {
         </Modal.Body>
 
         <Modal.Footer>
-          <Button onClick={this.props.onClose}>Back</Button>
+          <Button>Back</Button>
           <Button bsStyle="primary">Confirm</Button>
         </Modal.Footer>
 
@@ -29,7 +29,6 @@ export default class HostsDialog extends React.Component {
   );
 }
 }
-
 Modal.propTypes = {
   onClose: PropTypes.func.isRequired,
   show: PropTypes.bool,
