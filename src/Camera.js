@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import Webcam from 'react-webcam'
+import Webcam from './webcam'
 import sendPhoto from './actions/sendPhoto'
 import { connect } from 'react-redux'
 import WelcomeMessage from './WelcomeMessage'
@@ -36,6 +36,7 @@ class Camera extends PureComponent {
         var dataURI = null
         new Promise(
           r => {
+
                   video = document.querySelector('video'),
                   w = video.videoWidth * 0.5,
                   h = video.videoHeight * 0.5,
