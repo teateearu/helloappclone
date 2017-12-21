@@ -1,39 +1,34 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
+import { connect } from 'react-redux'
 import { Alert, Button } from 'react-bootstrap'
-import PropTypes from 'prop-types'
 
-export default class HostsDialog extends React.Component {
-  getInitialState() {
-    return {
-      alertVisible: true,
-    };
-  }
-
+class HostsDialog extends PureComponent {
   render() {
-    if (this.state.alertVisible) {
+    if (this.props.visible) {
       return (
-        <Alert bsStyle="danger" onDismiss={this.handleAlertDismiss}>
-          <h4>Oh snap! You got an error!</h4>
-          <p>Change this and that and try again. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.</p>
+        <Alert bsStyle="warning" onDismiss={this.handleAlertDismiss.bind(this)}>
+          <p>Your host is {this.props.host}</p>
+          <p>Please confirm your host or choose again!</p>
           <p>
-            <Button bsStyle="danger">Take this action</Button>
+            <Button bsStyle="info" onClick={this.handleAlertShow.bind(this)}>Confirm host</Button>
             <span> or </span>
-            <Button onClick={this.handleAlertDismiss}>Hide Alert</Button>
+            <Button onClick={this.handleAlertDismiss.bind(this)}>Choose another host</Button>
           </p>
         </Alert>
       );
     }
-
-    return (
-      <Button onClick={this.handleAlertShow}>Show Alert</Button>
-    );
+    return null;
   }
 
   handleAlertDismiss() {
-    this.setState({ alertVisible: false });
+    this.props.hideAlert();
   }
 
   handleAlertShow() {
-    this.setState({ alertVisible: true });
+    this.props.sendEmail(this.props.host);
   }
 }
+
+const mapStateToProps = ({ hosts }) => ({ hosts })
+
+export default connect(mapStateToProps)(HostsDialog)

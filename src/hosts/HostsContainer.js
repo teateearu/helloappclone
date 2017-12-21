@@ -8,23 +8,37 @@ import fetchHosts from '../actions/fetch'
 class HostsContainer extends PureComponent {
   constructor(props) {
     super(props);
-      this.state = { alertVisible: false };
-    }
+    this.state = {
+      showAlert: false,
+      host: null
+    };
+  }
 
   componentWillMount() {
     this.props.dispatch(fetchHosts())
   }
 
-  giveDialog() {
-    this.setState({ alertVisible: true })
+  updateShowAlert(host) {
+    this.setState({ showAlert: true, host: host})
+  }
+
+  hideAlert() {
+    this.setState({ showAlert: false, host: null})
+  }
+
+  sendEmail(host) {
+    console.log(`I am sending an email to ${host}!`)
+    this.setState({ showAlert: false, host: null})
+
   }
 
   render() {
     return (
       <div>
         <DropdownButton title="Choose your host" id="bg-dropdown" >
-          { this.props.hosts.map((host,index) => <MenuItem key={ index } onSelect={() => this.giveDialog()}> { host } </MenuItem>) }
+          { this.props.hosts.map((host,index) => <MenuItem key={ index } onSelect={this.updateShowAlert.bind(this, host)}> { host } </MenuItem>) }
         </DropdownButton>
+        <HostsDialog visible={this.state.showAlert} host={this.state.host} hideAlert={this.hideAlert.bind(this)} sendEmail={this.sendEmail.bind(this)}/>
       </div>
     );
   }
