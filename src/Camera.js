@@ -76,10 +76,12 @@ class Camera extends PureComponent {
         if (nullArray.length === 10){
           const message = "No match found."
           this.props.push(`/message/${message}`)
+          setTimeout(function(){window.location.href="/"}, 5000)
         }
         else if (messageArray.length > 0){
           const message = messageArray[0].message
           this.props.push(`/message/${message}`)
+          setTimeout(function(){window.location.href="/"}, 5000)
         }
       }
         return (
