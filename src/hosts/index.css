@@ -12,9 +12,6 @@ blue: #6699cc
   border-style: solid;
   border-width: 1.8px;
   border-color: black;
-  z-index: 0;
-
-
 }
 
 .menuitem {
@@ -22,17 +19,15 @@ blue: #6699cc
   padding-bottom:10px;
   padding-right: 102px;
   padding-left: 102px;
-  font-size: 120;
-
-
+  font-size: 120%;
 }
 
 .button {
   margin-top: 25vh;
   margin-left: 38vw;
   opacity: 0.6;
-
-
+  z-index: -1;
+  position: relative;
 }
 
 .background {
@@ -45,10 +40,27 @@ blue: #6699cc
   height: 100vh;
 }
 
-.background .button .alert {
-  margin-top: -8vh;
+.alert {
+  margin-top: -18vh;
   margin-left: -13vw;
-  z-index: 1;
+  margin-right: 30vw;
+  z-index: 999;
+  position: relative;
+  padding: 60px 80px;
+  font-size: 120%;
+  color: black;
+}
+
+.alertbackground {
+  background-color: white;
+}
+.redbutton {
+  background-color: #ff6666;
+  color: white;
+}
+.bluebutton {
+  background-color: #6699cc;
+  color: white;
 }
 /*.center {
     margin: auto;
