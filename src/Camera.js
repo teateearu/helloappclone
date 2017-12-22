@@ -74,7 +74,7 @@ class Camera extends PureComponent {
         if (nullArray.length === 10){
           const message = "No match found. Please notify your host."
           this.props.push(`/message/nomatch/${message}`)
-          setTimeout(function(){window.location.href="/"}, 30000)
+          setTimeout(function(){window.location.href="/"}, 50000)
         }
         else if (messageArray.length > 0){
           const message = messageArray[0].message

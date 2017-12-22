@@ -14,9 +14,10 @@ class WelcomeMessage extends PureComponent{
     return(
       <div className="WelcomeMessage">
       <p>{message}</p>
+      <p>{this.props.messages}</p>
       </div>
     )
   }
 }
-
-export default connect(null,null)(WelcomeMessage)
+const mapStateToProps = ({messages}) => ({messages})
+export default connect(mapStateToProps,null)(WelcomeMessage)
