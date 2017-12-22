@@ -1,16 +1,18 @@
 import React, { PureComponent } from 'react'
 import HostsContainer from './hosts/HostsContainer'
 
-class WelcomeMessage extends PureComponent{
+
+class NoMatchMessage extends PureComponent{
 
   render() {
     const {message} = this.props.match.params
     return(
-      <div className="WelcomeMessage">
+      <div className="NoMatchMessage">
       <p>{message}</p>
+      <HostsContainer />
       </div>
     )
   }
 }
 
-export default WelcomeMessage
+export default NoMatchMessage

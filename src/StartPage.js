@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react'
 import { push } from 'react-router-redux'
 import { connect } from 'react-redux'
+import {Button, Jumbotron} from 'react-bootstrap'
+import './StartPage.css'
 
 class StartPage extends PureComponent{
   startPage = () =>
@@ -11,7 +13,10 @@ class StartPage extends PureComponent{
   render() {
     return(
       <div className="StartPage">
-          <button onClick={this.startPage.bind(this)}>Start</button>
+        <div>
+          <h1> Welcome to Lightbase </h1>
+        </div>
+        <Button className="Start" bsSize="large" onClick={this.startPage.bind(this)}>START</Button>
       </div>
     )
   }

@@ -3,15 +3,18 @@ import Webcam from './webcam'
 import sendPhoto from './actions/sendPhoto'
 import { connect } from 'react-redux'
 import WelcomeMessage from './WelcomeMessage'
+import NoMatchMessage from './NoMatchMessage'
 import { push,replace } from 'react-router-redux'
+import './Camera.css'
+
 
 class Camera extends PureComponent {
 
+  componentDidMount() {
+    this.capture()
+  }
 
-  wait =
-      ms => new Promise(
-          r => setTimeout(r, ms)
-      )
+  wait = ms => new Promise(r => setTimeout(r, ms))
 
   repeat =
       (ms, func) => {
@@ -20,8 +23,7 @@ class Camera extends PureComponent {
           r => {
               intervalID = setInterval(func, ms),
               setTimeout(() => {  clearInterval(intervalID)
-                                  console.log('repeat end')
-                               } , 10000),
+              } , 11000),
               this.wait(ms).then(r)
           }
       )}
@@ -36,7 +38,6 @@ class Camera extends PureComponent {
         var dataURI = null
         new Promise(
           r => {
-
                   video = document.querySelector('video'),
                   w = video.videoWidth * 0.5,
                   h = video.videoHeight * 0.5,
@@ -48,14 +49,10 @@ class Camera extends PureComponent {
                   ctx.drawImage(video, 0, 0, w, h),
 
                   dataURI = canvas.toDataURL('image/jpeg'),
-                  console.log('repeating...'),
-                  console.log(dataURI.substring(dataURI.length - 20, dataURI.length))
                   this.props.sendPhoto(dataURI)
                   return dataURI
                 }
       )}
-
-
 
   setRef = (camera) => {
     this.camera = camera
@@ -70,33 +67,30 @@ class Camera extends PureComponent {
 
   render() {
       const messageArr = this.props.messageArray
-      console.log("MessageObj ", messageArr)
+      console.log("MessageArray ", messageArr)
       if (messageArr.length === 10){
         const nullArray = messageArr.filter(element => element.message ===  null)
         const messageArray = messageArr.filter(element => element.message !==  null)
         if (nullArray.length === 10){
-          const message = "No match found."
-          this.props.push(`/message/${message}`)
-          setTimeout(function(){window.location.href="/"}, 5000)
+          const message = "No match found. Please notify your host."
+          this.props.push(`/message/nomatch/${message}`)
+          setTimeout(function(){window.location.href="/"}, 30000)
         }
         else if (messageArray.length > 0){
           const message = messageArray[0].message
-          this.props.push(`/message/${message}`)
+          this.props.push(`/message/welcome/${message}`)
           setTimeout(function(){window.location.href="/"}, 5000)
         }
       }
         return (
-      <div>
-        <Webcam
-          audio={false}
-          height={350}
-          ref={this.setRef}
-          screenshotFormat="image/jpeg"
-          width={350}
-        />
-        <button onClick={this.capture}>Capture photo</button>
+          <div className="Camera">
+            <Webcam
+              audio={false}
+              ref={this.setRef}
+              screenshotFormat="image/jpeg"
+              className="Webcam"
 
-
+            />
       </div>
     )
   }
