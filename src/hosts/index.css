@@ -9,6 +9,12 @@ blue: #6699cc
   padding-bottom: 40px;
   padding-left: 50px;
   font-size: 150%;
+  border-style: solid;
+  border-width: 1.8px;
+  border-color: black;
+  z-index: 0;
+
+
 }
 
 .menuitem {
@@ -16,12 +22,17 @@ blue: #6699cc
   padding-bottom:10px;
   padding-right: 102px;
   padding-left: 102px;
-  font-size: 120%;
+  font-size: 120;
+
+
 }
 
 .button {
   margin-top: 25vh;
-  margin-left: 35vw;
+  margin-left: 38vw;
+  opacity: 0.6;
+
+
 }
 
 .background {
@@ -32,6 +43,12 @@ blue: #6699cc
   left: 0;
   width: 100vw;
   height: 100vh;
+}
+
+.background .button .alert {
+  margin-top: -8vh;
+  margin-left: -13vw;
+  z-index: 1;
 }
 /*.center {
     margin: auto;
