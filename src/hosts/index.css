@@ -1,11 +1,41 @@
-.Host {
-  display: flex;
-  flex-direction: row;
-  justify-content: left;
-  margin: 0 auto;
+
+/*
+lightbase red: #ff6666
+blue: #6699cc
+*/
+.dropdownbutton {
+  padding-top: 40px;
+  padding-right: 50px;
+  padding-bottom: 40px;
+  padding-left: 50px;
+  font-size: 150%;
 }
 
-.Host .Lala {
-  margin: 0 auto;
-  width:50%;
+.menuitem {
+  padding-top:10px;
+  padding-bottom:10px;
+  padding-right: 102px;
+  padding-left: 102px;
+  font-size: 120%;
 }
+
+.button {
+  margin-top: 25vh;
+  margin-left: 35vw;
+}
+
+.background {
+  background: linear-gradient(#ff6666, #6699cc);
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+/*.center {
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+}*/

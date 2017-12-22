@@ -34,11 +34,13 @@ class HostsContainer extends PureComponent {
 
   render() {
     return (
-      <div>
-        <DropdownButton title="Choose your host" id="bg-dropdown" >
-          { this.props.hosts.map((host,index) => <MenuItem key={ index } onSelect={this.updateShowAlert.bind(this, host)}> { host } </MenuItem>) }
-        </DropdownButton>
-        <HostsDialog visible={this.state.showAlert} host={this.state.host} hideAlert={this.hideAlert.bind(this)} sendEmail={this.sendEmail.bind(this)}/>
+      <div className="background">
+        <div className="button">
+          <DropdownButton className="dropdownbutton" title="Choose your host" id="bg-dropdown" >
+            { this.props.hosts.map((host,index) => <MenuItem className="menuitem" key={ index } onSelect={this.updateShowAlert.bind(this, host)}> { host } </MenuItem>) }
+          </DropdownButton>
+          <HostsDialog visible={this.state.showAlert} host={this.state.host} hideAlert={this.hideAlert.bind(this)} sendEmail={this.sendEmail.bind(this)}/>
+        </div>
       </div>
     );
   }
