@@ -10,8 +10,9 @@ blue: #6699cc
   padding-left: 50px;
   font-size: 150%;
   border-style: solid;
-  border-width: 1.8px;
-  border-color: black;
+  border-width: 1.5px;
+  border-color: #ccffff;
+  box-shadow: 5px 5px #888888;
 }
 
 .menuitem {
@@ -25,13 +26,13 @@ blue: #6699cc
 .button {
   margin-top: 25vh;
   margin-left: 38vw;
-  opacity: 0.6;
+  /*opacity: 0.6;*/
   z-index: -1;
   position: relative;
 }
 
 .background {
-  background: linear-gradient(#ff6666, #6699cc);
+  background-color: #6699cc;
   background-size: cover;
   position: fixed;
   top: 0;
@@ -49,6 +50,7 @@ blue: #6699cc
   padding: 60px 80px;
   font-size: 120%;
   color: black;
+  box-shadow: 5px 5px #888888;
 }
 
 .alertbackground {
