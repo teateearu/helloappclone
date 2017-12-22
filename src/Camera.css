@@ -1,0 +1,22 @@
+.Camera {
+
+}
+
+.Webcam {
+  position: fixed;
+  min-width:100%;
+  min-height: 100%;
+  width:auto;
+  height: auto;
+}
+
+.Capture {
+  overflow-wrap: break-word;
+  position: absolute;
+  bottom:1%;
+  left:1%;
+  background-color: orange;
+  color: white;
+  margin-top: 35%;
+  font-size: 28px;
+}

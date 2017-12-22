@@ -4,6 +4,7 @@ import './index.css'
 import { DropdownButton, MenuItem } from 'react-bootstrap'
 import HostsDialog from './HostsDialog'
 import fetchHosts from '../actions/fetch'
+import sendEmail from '../actions/sendEmail'
 
 class HostsContainer extends PureComponent {
   constructor(props) {
@@ -27,12 +28,13 @@ class HostsContainer extends PureComponent {
   }
 
   sendEmail(host) {
-    console.log(`I am sending an email to ${host}!`)
+    this.props.dispatch(sendEmail(host))
     this.setState({ showAlert: false, host: null})
 
   }
 
   render() {
+    const message = this.props.messages
     return (
       <div className="background">
         <div className="button">
@@ -46,6 +48,6 @@ class HostsContainer extends PureComponent {
   }
 }
 
-const mapStateToProps = ({ hosts }) => ({ hosts })
+const mapStateToProps = ({ hosts, messages }) => ({ hosts, messages })
 
 export default connect(mapStateToProps)(HostsContainer)

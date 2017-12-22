@@ -1,15 +1,16 @@
-import React, { Component } from 'react';
-import HostsContainer from './hosts/HostsContainer'
-import './App.css'
+import React, { Component } from 'react'
+import Camera from './Camera'
+import Routes from './routes'
+
 
 class App extends Component {
   render() {
     return (
-      <div className="main">
-        <HostsContainer />
+      <div className="App">
+      <Routes />
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
