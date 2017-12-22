@@ -1,5 +1,9 @@
 body {
-  margin: 0;
+  margin: 10px;
   padding: 0;
   font-family: sans-serif;
+  /*background-color: #6699cc;*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

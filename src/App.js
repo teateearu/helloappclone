@@ -1,28 +1,16 @@
-import React, { Component } from 'react';
-import SearchHost from './containers/searchHost'
-import PropTypes from 'prop-types'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import muiTheme from './assets/styles/theme'
+import React, { Component } from 'react'
+import Camera from './Camera'
+import Routes from './routes'
 
 
 class App extends Component {
-  static childContextTypes = {
-    muiTheme: PropTypes.object.isRequired,
-  }
-
-  getChildContext() {
-    return { muiTheme }
-  }
-
   render() {
     return (
-      <MuiThemeProvider muiTheme={muiTheme}>
-        <div>
-          <SearchHost />
-        </div>
-      </MuiThemeProvider>
+      <div className="App">
+      <Routes />
+      </div>
     )
   }
 }
 
-export default App;
+export default App
