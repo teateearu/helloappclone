@@ -1,86 +1,82 @@
-import request from 'superagent'
+import request from "superagent";
 
 export default class ApiClient {
-  defaultOptions = {
-    tokenStorageKey: 'helloApiJWT'
-  }
+	defaultOptions = {
+		tokenStorageKey: "helloApiJWT"
+	};
 
-  constructor(host, options = {}) {
-    this.host = host || 'http://localhost:3030'
-    this.options = { ...this.defaultOptions, ...options }
-  }
+	constructor(host, options = {}) {
+		this.host = host || "http://localhost:3030";
+		this.options = { ...this.defaultOptions, ...options };
+	}
 
-  // GET path
-  //
-  // Example:
-  //  api.get('/recipes')
-  //    .then(res => console.log(res.body))
-  //    .catch(err => console.log(err))
-  //
-  // Returns: Promise
-  get(path) {
-    return request
-      .get(this.createUrl(path))
-      .set(this.headers())
-  }
+	// GET path
+	//
+	// Example:
+	//  api.get('/recipes')
+	//    .then(res => console.log(res.body))
+	//    .catch(err => console.log(err))
+	//
+	// Returns: Promise
+	get(path) {
+		return request.get(this.createUrl(path)).set(this.headers());
+	}
 
-  post(path, data = {}) {
-    return request
-      .post(this.createUrl(path))
-      .set(this.headers())
-      .send(data)
-  }
+	post(path, data = {}) {
+		return request
+			.post(this.createUrl(path))
+			.set(this.headers())
+			.send(data);
+	}
 
-  put(path, data = {}) {
-    return request
-      .put(this.createUrl(path))
-      .set(this.headers())
-      .send(data)
-  }
+	put(path, data = {}) {
+		return request
+			.put(this.createUrl(path))
+			.set(this.headers())
+			.send(data);
+	}
 
-  patch(path, data = {}) {
-    return request
-      .patch(this.createUrl(path))
-      .set(this.headers())
-      .send(data)
-  }
+	patch(path, data = {}) {
+		return request
+			.patch(this.createUrl(path))
+			.set(this.headers())
+			.send(data);
+	}
 
-  delete(path) {
-    return request
-      .delete(this.createUrl(path))
-      .set(this.headers())
-  }
+	delete(path) {
+		return request.delete(this.createUrl(path)).set(this.headers());
+	}
 
-  signOut() {
-   localStorage.removeItem(this.options.tokenStorageKey)
- }
+	signOut() {
+		localStorage.removeItem(this.options.tokenStorageKey);
+	}
 
-  headers() {
-    let headers = {
-      Accept: 'application/json'
-    }
+	headers() {
+		let headers = {
+			Accept: "application/json"
+		};
 
-    if (this.isAuthenticated()) {
-      headers.Authorization = `Bearer ${this.getToken()}`
-    }
+		if (this.isAuthenticated()) {
+			headers.Authorization = `Bearer ${this.getToken()}`;
+		}
 
-    return headers
-  }
+		return headers;
+	}
 
-  isAuthenticated() {
-    return !!this.getToken()
-  }
+	isAuthenticated() {
+		return !!this.getToken();
+	}
 
-  // Create a full URL to our API, including the host and path
-  createUrl(path) {
-    return [this.host, path].join('/')
-  }
+	// Create a full URL to our API, including the host and path
+	createUrl(path) {
+		return [this.host, path].join("/");
+	}
 
-  getToken() {
-    return localStorage.getItem(this.options.tokenStorageKey)
-  }
+	getToken() {
+		return localStorage.getItem(this.options.tokenStorageKey);
+	}
 
-  storeToken(token) {
-    localStorage.setItem(this.options.tokenStorageKey, token)
-  }
+	storeToken(token) {
+		localStorage.setItem(this.options.tokenStorageKey, token);
+	}
 }
