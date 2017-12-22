@@ -25,7 +25,7 @@ blue: #6699cc
 
 .button {
   margin-top: 25vh;
-  margin-left: 38vw;
+  margin-left: 31vw;
   /*opacity: 0.6;*/
   z-index: -1;
   position: relative;
@@ -43,8 +43,8 @@ blue: #6699cc
 
 .alert {
   margin-top: -18vh;
-  margin-left: -13vw;
-  margin-right: 30vw;
+  margin-left: -8vw;
+  margin-right: 25vw;
   z-index: 999;
   position: relative;
   padding: 60px 80px;
