@@ -1,7 +1,13 @@
 import React, { PureComponent } from 'react'
 import HostsContainer from './hosts/HostsContainer'
+import notifyServer from './actions/notifyServer'
+import { connect } from 'react-redux'
 
 class WelcomeMessage extends PureComponent{
+  componentDidMount() {
+    const {message} = this.props.match.params
+    this.props.dispatch(notifyServer(message))
+  }
 
   render() {
     const {message} = this.props.match.params
@@ -13,4 +19,4 @@ class WelcomeMessage extends PureComponent{
   }
 }
 
-export default WelcomeMessage
+export default connect(null,null)(WelcomeMessage)
