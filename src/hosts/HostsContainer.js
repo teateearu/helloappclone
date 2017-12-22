@@ -4,6 +4,7 @@ import './index.css'
 import { DropdownButton, MenuItem } from 'react-bootstrap'
 import HostsDialog from './HostsDialog'
 import fetchHosts from '../actions/fetch'
+import sendEmail from '../actions/sendEmail'
 
 class HostsContainer extends PureComponent {
   constructor(props) {
@@ -27,23 +28,25 @@ class HostsContainer extends PureComponent {
   }
 
   sendEmail(host) {
-    console.log(`I am sending an email to ${host}!`)
+    this.props.dispatch(sendEmail(host))
     this.setState({ showAlert: false, host: null})
 
   }
 
   render() {
+     const message = this.props.messages
     return (
       <div>
         <DropdownButton title="Choose your host" id="bg-dropdown" >
           { this.props.hosts.map((host,index) => <MenuItem key={ index } onSelect={this.updateShowAlert.bind(this, host)}> { host } </MenuItem>) }
         </DropdownButton>
         <HostsDialog visible={this.state.showAlert} host={this.state.host} hideAlert={this.hideAlert.bind(this)} sendEmail={this.sendEmail.bind(this)}/>
+        <p>{message}</p>
       </div>
     );
   }
 }
 
-const mapStateToProps = ({ hosts }) => ({ hosts })
+const mapStateToProps = ({ hosts, messages }) => ({ hosts, messages })
 
 export default connect(mapStateToProps)(HostsContainer)
