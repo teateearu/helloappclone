@@ -27,7 +27,7 @@ class Camera extends PureComponent {
                 if (messageArr[messageArr.length - 1] !==  null)
                   clearInterval(intervalID)
               }
-                
+
               setTimeout(() => {  clearInterval(intervalID)
               } , 11000),
               this.wait(ms).then(r)
@@ -82,7 +82,7 @@ class Camera extends PureComponent {
           setTimeout(function(){window.location.href="/"}, 50000)
         }
         else if (messageArr[messageArr.length - 1] !== null){
-          const message = messageArray[0].message
+          const message = messageArr[0].message
           this.props.push(`/message/welcome/${message}`)
           setTimeout(function(){window.location.href="/"}, 5000)
         }
