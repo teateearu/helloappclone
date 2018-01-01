@@ -6,7 +6,7 @@ export default class ApiClient {
   }
 
   constructor(host, options = {}) {
-    this.host = host || 'http://localhost:3030'
+    this.host = host || 'https://69fd2890.ngrok.io'
     this.options = { ...this.defaultOptions, ...options }
   }
 

@@ -22,6 +22,12 @@ class Camera extends PureComponent {
         new Promise(
           r => {
               intervalID = setInterval(func, ms),
+              const messageArr = this.props.messageArray
+              if (messageArr.length > 0){
+                if (messageArr[messageArr.length - 1] !==  null)
+                  clearInterval(intervalID)
+              }
+                
               setTimeout(() => {  clearInterval(intervalID)
               } , 11000),
               this.wait(ms).then(r)
@@ -68,15 +74,14 @@ class Camera extends PureComponent {
   render() {
       const messageArr = this.props.messageArray
       console.log("MessageArray ", messageArr)
-      if (messageArr.length === 10){
+      if (messageArr.length > 0){
         const nullArray = messageArr.filter(element => element.message ===  null)
-        const messageArray = messageArr.filter(element => element.message !==  null)
         if (nullArray.length === 10){
           const message = "No match found. Please notify your host."
           this.props.push(`/message/nomatch/${message}`)
           setTimeout(function(){window.location.href="/"}, 50000)
         }
-        else if (messageArray.length > 0){
+        else if (messageArr[messageArr.length - 1] !== null){
           const message = messageArray[0].message
           this.props.push(`/message/welcome/${message}`)
           setTimeout(function(){window.location.href="/"}, 5000)
