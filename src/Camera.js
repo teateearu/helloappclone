@@ -83,11 +83,11 @@ class Camera extends PureComponent {
 
       }
         return (
-          <div className="Camera">
           <div>
+          <div className="Camera">
             <h6>Recognize in {10 - this.props.messageArray.length}</h6>
             <ProgressBar active now={this.props.messageArray.length*10}/>
-          </div>
+            </div>
             <Webcam
               audio={false}
               ref={this.setRef}
