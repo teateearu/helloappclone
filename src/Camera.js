@@ -73,7 +73,7 @@ class Camera extends PureComponent {
       if (messageArr.length > 0){
         const nullArray = messageArr.filter(element => element.message ===  null)
         if (nullArray.length === 10){
-          this.props.push('/message/nomatch')
+          this.props.push('/hosts')
         }
         if (messageArr[messageArr.length - 1].message !== null){
           const message = messageArr[messageArr.length - 1].message

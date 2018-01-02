@@ -38,6 +38,7 @@ class HostsContainer extends PureComponent {
     return (
       <div className="background">
         <div className="button">
+        <div className="message">No match found. Please notify your host:</div><br/>
           <DropdownButton className="dropdownbutton" title="Choose your host" id="bg-dropdown" >
             { this.props.hosts.map((host,index) => <MenuItem className="menuitem" key={ index } onSelect={this.updateShowAlert.bind(this, host)}> { host } </MenuItem>) }
           </DropdownButton>
