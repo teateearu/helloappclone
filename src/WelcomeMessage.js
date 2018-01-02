@@ -15,8 +15,8 @@ class WelcomeMessage extends PureComponent {
     return (
       <div className="WelcomeMessage">
         <div>
-          <h1>{message}</h1>
-          <p>{this.props.messages}</p>
+          <br/><h1>{message.split(', Welcome')[0]}</h1><br/>
+          <p>Your host has been notified</p>
         </div>
       </div>
     );

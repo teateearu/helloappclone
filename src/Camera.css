@@ -1,7 +1,23 @@
 .Camera {
+	position: fixed;
+	top: 0;
+	left: 5vw;
+	z-index:999;
+	width:80vw;
+}
+
+.Camera > h6 {
+	font-size: 28px;
 }
 
 .Webcam {
+	position: fixed;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	top: 0;
+	left: 0;
 }
 
 .Capture {
