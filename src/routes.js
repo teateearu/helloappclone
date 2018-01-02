@@ -18,7 +18,7 @@ export default class Routes extends Component {
         <Route exact path="/camera" component={Camera} />
         <Route exact path="/message/welcome/:message" component={WelcomeMessage} />
         <Route exact path="/message/nomatch/:message" component={NoMatchMessage} />
-        <Route exact path="/hosts" component={HostsContainer} />
+      
       </div>
     )
   }
