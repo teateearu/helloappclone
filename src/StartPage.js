@@ -13,7 +13,7 @@ class StartPage extends PureComponent {
 		return (
 			<div className="StartPage">
 				<div>
-					<h1> Welcome to Lightbot </h1>
+					<h1> Welcome! </h1>
 				</div>
 				<Button
 					className="Start"

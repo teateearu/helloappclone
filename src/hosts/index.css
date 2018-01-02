@@ -24,11 +24,12 @@ blue: #6699cc
 }
 
 .button {
-  margin-top: 25vh;
-  margin-left: 29vw;
-  /*opacity: 0.6;*/
+  margin-top: 30vh;
   z-index: -1;
-  position: relative;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 2% 3%;
 }
 
 .background {
@@ -42,11 +43,13 @@ blue: #6699cc
 }
 
 .alert {
-  margin-top: -20vh;
-  margin-left: -13vw;
-  margin-right: 17vw;
+  margin-top: -25vh;
+  position: fixed;
+  width: 150%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 2% 3%;
   z-index: 999;
-  position: relative;
   padding: 60px 80px;
   font-size: 120%;
   color: black;
@@ -65,13 +68,20 @@ blue: #6699cc
   color: white;
 }
 .message {
+  position: fixed;
+  margin-right: -10vw;
+  top: 25vh;
+  left: 50%;
+  transform: translateX(-50%);
   color: white;
   font-size: 150%;
-  margin-left: -10vw;
 }
 .notified {
+  position: fixed;
+  margin-right: -17vw;
+  top: 25vh;
+  left: 50%;
+  transform: translateX(-50%);
   color: white;
   font-size: 150%;
-  margin-top: 25vh;
-  margin-left: 20vw;
 }

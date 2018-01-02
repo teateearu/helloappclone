@@ -13,7 +13,7 @@ class HostsDialog extends PureComponent {
           <p>Your host is {this.props.host}</p><br/>
           <p>Please confirm your host or choose again!</p><br/>
           <p>
-            <Button className="bluebutton" onClick={() => { this.handleAlertShow.bind(this); this.hostNotified(this) }}>Confirm host</Button>
+            <Button className="bluebutton" onClick={() => { this.handleAlertShow(this); this.hostNotified(this) }}>Confirm host</Button>
             <span>   </span>
             <Button className="redbutton" onClick={this.handleAlertDismiss.bind(this)}>Choose another host</Button>
           </p>
