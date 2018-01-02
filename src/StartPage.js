@@ -3,6 +3,7 @@ import { push } from "react-router-redux";
 import { connect } from "react-redux";
 import { Button, Jumbotron } from "react-bootstrap";
 import "./StartPage.css";
+import Webcam from './webcam'
 
 class StartPage extends PureComponent {
 	startPage = () => {
@@ -12,6 +13,13 @@ class StartPage extends PureComponent {
 	render() {
 		return (
 			<div className="StartPage">
+			<h1> Welcome to Lightbot </h1>
+			<Webcam
+				audio={false}
+
+				screenshotFormat="image/jpeg"
+				className="WebcamStart"
+			/>
 				<div>
 					<h1> Welcome to Lightbot </h1>
 				</div>
