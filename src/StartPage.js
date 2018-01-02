@@ -21,7 +21,7 @@ class StartPage extends PureComponent {
 				className="WebcamStart"
 			/>
 				<div>
-					<h1> Welcome to Lightbot </h1>
+					<h1> Welcome! </h1>
 				</div>
 				<Button
 					className="Start"
