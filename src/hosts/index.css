@@ -1,11 +1,66 @@
-.Host {
-  display: flex;
-  flex-direction: row;
-  justify-content: left;
-  margin: 0 auto;
+/*
+lightbase red: #ff6666
+blue: #6699cc
+*/
+.dropdownbutton {
+  padding-top: 40px;
+  padding-right: 50px;
+  padding-bottom: 40px;
+  padding-left: 50px;
+  font-size: 150%;
+  border-style: solid;
+  border-width: 1.5px;
+  border-color: #ccffff;
+  box-shadow: 5px 5px #888888;
 }
 
-.Host .Lala {
-  margin: 0 auto;
-  width:50%;
+.menuitem {
+  padding-top:10px;
+  padding-bottom:10px;
+  padding-right: 102px;
+  padding-left: 102px;
+  font-size: 120%;
+  width: 100%;
+}
+
+.button {
+  margin-top: 25vh;
+  margin-left: 31vw;
+  /*opacity: 0.6;*/
+  z-index: -1;
+  position: relative;
+}
+
+.background {
+  background-color: #6699cc;
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.alert {
+  margin-top: -18vh;
+  margin-left: -8vw;
+  margin-right: 25vw;
+  z-index: 999;
+  position: relative;
+  padding: 60px 80px;
+  font-size: 120%;
+  color: black;
+  box-shadow: 5px 5px #888888;
+}
+
+.alertbackground {
+  background-color: white;
+}
+.redbutton {
+  background-color: #ff6666;
+  color: white;
+}
+.bluebutton {
+  background-color: #6699cc;
+  color: white;
 }
