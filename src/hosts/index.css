@@ -43,17 +43,18 @@ blue: #6699cc
 }
 
 .alert {
-  margin-top: -25vh;
+  margin-top: -29vh;
   position: fixed;
   width: 150%;
   left: 50%;
   transform: translateX(-50%);
   padding: 2% 3%;
   z-index: 999;
-  padding: 60px 80px;
+  padding: 80px 80px;
   font-size: 120%;
   color: black;
   box-shadow: 5px 5px #888888;
+  z-index: 999;
 }
 
 .alertbackground {
@@ -75,6 +76,7 @@ blue: #6699cc
   transform: translateX(-50%);
   color: white;
   font-size: 150%;
+  z-index: -3;
 }
 .notified {
   position: fixed;
