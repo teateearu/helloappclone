@@ -26,7 +26,7 @@ class HostsContainer extends PureComponent {
   hideAlert() {
     this.setState({ showAlert: false, host: null})
   }
-<p>{message}</p>
+
   sendEmail(host) {
     this.props.dispatch(sendEmail(host))
     this.setState({ showAlert: false, host: null})
@@ -43,7 +43,7 @@ class HostsContainer extends PureComponent {
           </DropdownButton>
           <HostsDialog className="alert"visible={this.state.showAlert} host={this.state.host} hideAlert={this.hideAlert.bind(this)} sendEmail={this.sendEmail.bind(this)}/>
         </div>
-        <p>{message}</p>
+        
       </div>
     );
   }

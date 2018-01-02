@@ -26,7 +26,6 @@ class Camera extends PureComponent {
 
               setTimeout(() => {  clearInterval(intervalID)
               } , 11000)
-              console.log("intervalID")
 
           }
       )}
@@ -94,7 +93,6 @@ class Camera extends PureComponent {
               ref={this.setRef}
               screenshotFormat="image/jpeg"
               className="Webcam"
-
             />
       </div>
     )
