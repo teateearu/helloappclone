@@ -6,6 +6,7 @@ import WelcomeMessage from './WelcomeMessage'
 import NoMatchMessage from './NoMatchMessage'
 import { push,replace } from 'react-router-redux'
 import './Camera.css'
+import { ProgressBar } from 'react-bootstrap'
 
 
 class Camera extends PureComponent {
@@ -73,11 +74,9 @@ class Camera extends PureComponent {
       if (messageArr.length > 0){
         const nullArray = messageArr.filter(element => element.message ===  null)
         if (nullArray.length === 10){
-          const message = "No match found. Please notify your host."
-          this.props.push(`/message/nomatch/${message}`)
-          setTimeout(function(){window.location.href="/"}, 50000)
+          this.props.push('/message/nomatch')
         }
-        if (messageArr[messageArr.length - 1] !== null){
+        if (messageArr[messageArr.length - 1].message !== null){
           const message = messageArr[messageArr.length - 1].message
           this.props.push(`/message/welcome/${message}`)
           setTimeout(function(){window.location.href="/"}, 10000)
@@ -86,7 +85,10 @@ class Camera extends PureComponent {
       }
         return (
           <div className="Camera">
-          <div><h1>Recognize in {10 - this.props.messageArray.length}</h1></div>
+          <div>
+            <h6>Recognize in {10 - this.props.messageArray.length}</h6>
+            <ProgressBar active now={this.props.messageArray.length*10}/>
+          </div>
             <Webcam
               audio={false}
               ref={this.setRef}
