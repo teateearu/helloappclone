@@ -13,7 +13,7 @@ class StartPage extends PureComponent {
 	render() {
 		return (
 			<div className="StartPage">
-			<h1> Welcome to Lightbot </h1>
+			<h1> Welcome! </h1>
 			<Webcam
 				audio={false}
 
