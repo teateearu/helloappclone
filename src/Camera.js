@@ -13,11 +13,14 @@ class Camera extends PureComponent {
   componentDidMount() {
     this.capture()
   }
+  capture = () => {
+    this.repeat(1000, () => Promise.all([this.takePhoto()])) // 1000 miliseconds = 1 second
+
+  }
 
   wait = ms => new Promise(r => setTimeout(r, ms))
 
-  repeat =
-      (ms, func) => {
+  repeat = (ms, func) => {
         var intervalID = 0
         new Promise(
           r => {
@@ -39,7 +42,7 @@ class Camera extends PureComponent {
         new Promise(
           r => {
                   video = document.querySelector('video'),
-                  w = video.videoWidth * 0.5,
+                  w = (!!video) ? video.videoWidth * 0.5 : null,
                   h = video.videoHeight * 0.5,
                   canvas = document.createElement('canvas'),
 
@@ -59,11 +62,6 @@ class Camera extends PureComponent {
   }
 
 
-  capture = () => {
-
-    this.repeat(1000, () => Promise.all([this.takePhoto()])) // 1000 miliseconds = 1 second
-
-  }
 
   render() {
       const messageArr = this.props.messageArray
@@ -84,6 +82,7 @@ class Camera extends PureComponent {
       }
         return (
           <div className="Camera">
+            <div><h1>{this.props.messageArray.length}</h1></div>
             <Webcam
               audio={false}
               ref={this.setRef}
