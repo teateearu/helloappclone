@@ -19,13 +19,13 @@ blue: #6699cc
   padding-bottom:10px;
   padding-right: 102px;
   padding-left: 102px;
-  font-size: 120%;
+  font-size: 200%;
   width: 100%;
 }
 
 .button {
   margin-top: 25vh;
-  margin-left: 31vw;
+  margin-left: 29vw;
   /*opacity: 0.6;*/
   z-index: -1;
   position: relative;
@@ -42,9 +42,9 @@ blue: #6699cc
 }
 
 .alert {
-  margin-top: -18vh;
-  margin-left: -8vw;
-  margin-right: 25vw;
+  margin-top: -20vh;
+  margin-left: -13vw;
+  margin-right: 17vw;
   z-index: 999;
   position: relative;
   padding: 60px 80px;
@@ -63,4 +63,15 @@ blue: #6699cc
 .bluebutton {
   background-color: #6699cc;
   color: white;
+}
+.message {
+  color: white;
+  font-size: 150%;
+  margin-left: -10vw;
+}
+.notified {
+  color: white;
+  font-size: 150%;
+  margin-top: 25vh;
+  margin-left: 20vw;
 }

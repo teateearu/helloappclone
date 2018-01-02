@@ -9,6 +9,7 @@ import HostsContainer from './hosts/HostsContainer'
 import StartPage from './StartPage'
 import WelcomeMessage from './WelcomeMessage'
 import NoMatchMessage from './NoMatchMessage'
+import HostNotified from './hosts/HostNotified'
 
 export default class Routes extends Component {
   render() {
@@ -19,6 +20,7 @@ export default class Routes extends Component {
         <Route exact path="/message/welcome/:message" component={WelcomeMessage} />
         <Route exact path="/message/nomatch/:message" component={NoMatchMessage} />
         <Route exact path="/hosts" component={HostsContainer} />
+        <Route exact path="/hostnotified" component={HostNotified} />
       </div>
     )
   }
