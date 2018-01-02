@@ -30,7 +30,7 @@ class HostsContainer extends PureComponent {
   sendEmail(host) {
     this.props.dispatch(sendEmail(host))
     this.setState({ showAlert: false, host: null})
-
+    setTimeout(function(){window.location.href="/"}, 50000)
   }
 
   render() {
