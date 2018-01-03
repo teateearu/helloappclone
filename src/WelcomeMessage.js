@@ -16,9 +16,9 @@ class WelcomeMessage extends PureComponent {
   render() {
     const { message } = this.props.match.params
     return (
-      <div className="WelcomeMessage">
+      <div className="welcomeBackground">
         <div className="Message">
-          <br/><h1>Hello, {`${message.split(' ')[0]} ${message.split(' ')[1]}`}</h1><br/>
+          <h1>Hello {`${message.split(' ')[0]} ${message.split(' ')[1]}`}</h1>
           <p>Your host has been notified and will be in touch with you shortly.</p>
         </div>
         <Button className="backbutton" onClick={this.backToStart}>Back to start</Button>

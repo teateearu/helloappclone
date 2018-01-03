@@ -64,11 +64,13 @@ blue: #6699cc
   background-color: #ff6666;
   color: white;
   text-shadow: 0 0 2px #282828;
+  font-size: 100%;
 }
 .bluebutton {
   background-color: #6699cc;
   color: white;
   text-shadow: 0 0 2px #282828;
+  font-size: 100%;
 }
 .message {
   position: fixed;
@@ -80,6 +82,7 @@ blue: #6699cc
   font-size: 150%;
   z-index: -3;
   text-shadow: 0 0 3px #282828;
+  font-weight: 900;
 }
 .notified {
   position: fixed;
@@ -90,4 +93,5 @@ blue: #6699cc
   color: white;
   font-size: 150%;
   text-shadow: 0 0 3px #282828;
+  font-weight: 900;
 }

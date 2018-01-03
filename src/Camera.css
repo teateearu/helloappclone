@@ -37,7 +37,8 @@
 	position: fixed;
 	bottom: 3%;
 	right: 5%;
-	border: 3px solid #6699cc;
+	border: 3px solid #ccffff;
 	padding: 2% 3%;
 	box-shadow: 5px 5px #888888;
+	font-size: 100%;
 }

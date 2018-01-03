@@ -83,7 +83,7 @@ class Camera extends PureComponent {
         return (
           <div>
           <div className="Camera">
-            <h6>Recognize in {10 - this.props.messageArray.length}</h6>
+            <h6>Recognizing...</h6>
             <ProgressBar active now={this.props.messageArray.length*10}/>
             <Button className="backbutton" onClick={this.backToStart}>Back to start</Button>
             </div>
