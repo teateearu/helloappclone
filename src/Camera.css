@@ -8,6 +8,8 @@
 
 .Camera > h6 {
 	font-size: 28px;
+	color: white;
+	text-shadow: 0 0 3px #282828;
 }
 
 .Webcam {
