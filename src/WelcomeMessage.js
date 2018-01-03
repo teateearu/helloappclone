@@ -13,9 +13,9 @@ class WelcomeMessage extends PureComponent {
     const { message } = this.props.match.params
     return (
       <div className="WelcomeMessage">
-        <div>
+        <div className="Message">
           <br/><h1>Hello, {`${message.split(' ')[0]} ${message.split(' ')[1]}`}</h1><br/>
-          <p>Your host has been notified</p>
+          <p>Your host has been notified and will be in touch with you shortly.</p>
         </div>
       </div>
     )

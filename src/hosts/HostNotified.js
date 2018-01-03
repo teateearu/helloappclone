@@ -6,7 +6,7 @@ class HostNotified extends PureComponent {
   render() {
     return (
       <div className="background">
-        <p className="notified">Your host has been notified, please wait.</p>
+        <p className="notified">Your host has been notified and will be in touch with you shortly.</p>
       </div>
     )
   }
