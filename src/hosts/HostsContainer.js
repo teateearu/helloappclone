@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import './index.css'
 import { DropdownButton, MenuItem } from 'react-bootstrap'
@@ -8,11 +8,11 @@ import sendEmail from '../actions/sendEmail'
 
 class HostsContainer extends PureComponent {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       showAlert: false,
       host: null
-    };
+    }
   }
 
   componentWillMount() {
@@ -34,7 +34,7 @@ class HostsContainer extends PureComponent {
   }
 
   render() {
-    const message = this.props.messages
+
     return (
       <div className="background">
         <div className="message">No match found. Please notify your host:</div><br/>
@@ -45,10 +45,10 @@ class HostsContainer extends PureComponent {
           <HostsDialog className="alert"visible={this.state.showAlert} host={this.state.host} hideAlert={this.hideAlert.bind(this)} sendEmail={this.sendEmail.bind(this)}/>
         </div>
       </div>
-    );
+    )
   }
 }
 
-const mapStateToProps = ({ hosts, messages }) => ({ hosts, messages })
+const mapStateToProps = ({ hosts }) => ({ hosts })
 
 export default connect(mapStateToProps)(HostsContainer)

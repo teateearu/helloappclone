@@ -1,6 +1,6 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import { push } from "react-router-redux";
+import { push } from "react-router-redux"
 import { Alert, Button } from 'react-bootstrap'
 import './index.css'
 
@@ -18,21 +18,21 @@ class HostsDialog extends PureComponent {
             <Button className="redbutton" onClick={this.handleAlertDismiss.bind(this)}>Choose another host</Button>
           </p>
         </Alert>
-      );
+      )
     }
-    return null;
+    return null
   }
 
   handleAlertDismiss() {
-    this.props.hideAlert();
+    this.props.hideAlert()
   }
 
   handleAlertShow() {
-    this.props.sendEmail(this.props.host);
+    this.props.sendEmail(this.props.host)
   }
 
   hostNotified = () => {
-    this.props.push("/hostnotified");
+    this.props.push("/hostnotified")
   }
 }
 

@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import './index.css'
 
@@ -8,7 +8,7 @@ class HostNotified extends PureComponent {
       <div className="background">
         <p className="notified">Your host has been notified, please wait.</p>
       </div>
-    );
+    )
   }
 }
 

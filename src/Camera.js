@@ -2,12 +2,9 @@ import React, { PureComponent } from 'react'
 import Webcam from './webcam'
 import sendPhoto from './actions/sendPhoto'
 import { connect } from 'react-redux'
-import WelcomeMessage from './WelcomeMessage'
-import NoMatchMessage from './NoMatchMessage'
-import { push,replace } from 'react-router-redux'
+import { push } from 'react-router-redux'
 import './Camera.css'
 import { ProgressBar } from 'react-bootstrap'
-
 
 class Camera extends PureComponent {
 
@@ -15,18 +12,14 @@ class Camera extends PureComponent {
     this.capture()
   }
 
-  wait = ms => new Promise(r => setTimeout(r, ms))
-
   repeat = (ms, func) => {
         var intervalID = 0
         var messageArr = null
         new Promise(
           r => {
               intervalID = setInterval(func, ms)
-
               setTimeout(() => {  clearInterval(intervalID)
               } , 11000)
-
           }
       )}
 
@@ -60,11 +53,8 @@ class Camera extends PureComponent {
     this.camera = camera
   }
 
-
   capture = () => {
-
     this.repeat(1000, () => Promise.all([this.takePhoto()])) // 1000 miliseconds = 1 second
-
   }
 
   render() {
