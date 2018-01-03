@@ -11,6 +11,10 @@ class Camera extends PureComponent {
   componentDidMount() {
     this.capture()
   }
+  capture = () => {
+    this.repeat(1000, () => Promise.all([this.takePhoto()])) // 1000 miliseconds = 1 second
+
+  }
 
   repeat = (ms, func) => {
         var intervalID = 0

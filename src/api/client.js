@@ -6,18 +6,10 @@ export default class ApiClient {
 	};
 
 	constructor(host, options = {}) {
-		this.host = host || "http://localhost:3030";
+		this.host = host || "https://29c4cef7.ngrok.io";
 		this.options = { ...this.defaultOptions, ...options };
 	}
 
-	// GET path
-	//
-	// Example:
-	//  api.get('/recipes')
-	//    .then(res => console.log(res.body))
-	//    .catch(err => console.log(err))
-	//
-	// Returns: Promise
 	get(path) {
 		return request.get(this.createUrl(path)).set(this.headers());
 	}
