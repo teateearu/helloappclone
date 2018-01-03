@@ -82,7 +82,6 @@ blue: #6699cc
   font-size: 150%;
   z-index: -3;
   text-shadow: 0 0 3px #282828;
-  font-weight: 900;
 }
 .notified {
   position: fixed;
@@ -93,5 +92,4 @@ blue: #6699cc
   color: white;
   font-size: 150%;
   text-shadow: 0 0 3px #282828;
-  font-weight: 900;
 }
