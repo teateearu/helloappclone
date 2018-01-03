@@ -1,8 +1,9 @@
 import React, { PureComponent } from "react";
 import { push } from "react-router-redux";
 import { connect } from "react-redux";
-import { Button, Jumbotron } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import "./StartPage.css";
+import Webcam from './webcam'
 
 class StartPage extends PureComponent {
 	startPage = () => {
@@ -12,18 +13,21 @@ class StartPage extends PureComponent {
 	render() {
 		return (
 			<div className="StartPage">
+			<Webcam
+				audio={false}
+				screenshotFormat="image/jpeg"
+				className="WebcamStart"/>
 				<div>
-					<h1> Welcome to Lightbase </h1>
+					<h1> Welcome! </h1>
 				</div>
 				<Button
 					className="Start"
 					bsSize="large"
-					onClick={this.startPage.bind(this)}
-				>
+					onClick={this.startPage.bind(this)}>
 					Say hello to our camera
 				</Button>
 			</div>
-		);
+		)
 	}
 }
 

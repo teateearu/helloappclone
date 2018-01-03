@@ -2,34 +2,32 @@ import React, { PureComponent } from 'react'
 import Webcam from './webcam'
 import sendPhoto from './actions/sendPhoto'
 import { connect } from 'react-redux'
-import WelcomeMessage from './WelcomeMessage'
-import NoMatchMessage from './NoMatchMessage'
-import { push,replace } from 'react-router-redux'
+import { push } from 'react-router-redux'
 import './Camera.css'
-
+import { ProgressBar } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
 
 class Camera extends PureComponent {
 
   componentDidMount() {
     this.capture()
   }
+  capture = () => {
+    this.repeat(1000, () => Promise.all([this.takePhoto()])) // 1000 miliseconds = 1 second
 
-  wait = ms => new Promise(r => setTimeout(r, ms))
+  }
 
-  repeat =
-      (ms, func) => {
+  repeat = (ms, func) => {
         var intervalID = 0
         new Promise(
           r => {
-              intervalID = setInterval(func, ms),
+              intervalID = setInterval(func, ms)
               setTimeout(() => {  clearInterval(intervalID)
-              } , 11000),
-              this.wait(ms).then(r)
+              } , 11000)
           }
       )}
 
-  takePhoto =
-      () => {
+  takePhoto = () => {
         var video = null
         var w = 0
         var h = 0
@@ -38,17 +36,18 @@ class Camera extends PureComponent {
         var dataURI = null
         new Promise(
           r => {
-                  video = document.querySelector('video'),
-                  w = video.videoWidth * 0.5,
-                  h = video.videoHeight * 0.5,
-                  canvas = document.createElement('canvas'),
+                  video = document.querySelector('video')
+                  if (!video) {return null}
+                  w = video.videoWidth * 0.5
+                  h = video.videoHeight * 0.5
+                  canvas = document.createElement('canvas')
 
-                  canvas.width = w,
-                  canvas.height = h,
-                  ctx = canvas.getContext('2d'),
-                  ctx.drawImage(video, 0, 0, w, h),
+                  canvas.width = w
+                  canvas.height = h
+                  ctx = canvas.getContext('2d')
+                  ctx.drawImage(video, 0, 0, w, h)
 
-                  dataURI = canvas.toDataURL('image/jpeg'),
+                  dataURI = canvas.toDataURL('image/jpeg')
                   this.props.sendPhoto(dataURI)
                   return dataURI
                 }
@@ -58,38 +57,41 @@ class Camera extends PureComponent {
     this.camera = camera
   }
 
-
   capture = () => {
-
     this.repeat(1000, () => Promise.all([this.takePhoto()])) // 1000 miliseconds = 1 second
+  }
 
+  backToStart() {
+    window.location.href="/";
   }
 
   render() {
       const messageArr = this.props.messageArray
       console.log("MessageArray ", messageArr)
-      if (messageArr.length === 10){
+      if (messageArr.length > 0){
         const nullArray = messageArr.filter(element => element.message ===  null)
-        const messageArray = messageArr.filter(element => element.message !==  null)
         if (nullArray.length === 10){
-          const message = "No match found. Please notify your host."
-          this.props.push(`/message/nomatch/${message}`)
-          setTimeout(function(){window.location.href="/"}, 50000)
+          this.props.push('/hosts')
         }
-        else if (messageArray.length > 0){
-          const message = messageArray[0].message
+        if (messageArr[messageArr.length - 1].message !== null){
+          const message = messageArr[messageArr.length - 1].message
           this.props.push(`/message/welcome/${message}`)
-          setTimeout(function(){window.location.href="/"}, 5000)
+          setTimeout(function(){window.location.href="/"}, 10000)
         }
+
       }
         return (
+          <div>
           <div className="Camera">
+            <h6>Recognizing...</h6>
+            <ProgressBar active now={this.props.messageArray.length*10}/>
+            <Button className="backbutton" onClick={this.backToStart}>Back to start</Button>
+            </div>
             <Webcam
               audio={false}
               ref={this.setRef}
               screenshotFormat="image/jpeg"
               className="Webcam"
-
             />
       </div>
     )

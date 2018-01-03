@@ -19,16 +19,17 @@ blue: #6699cc
   padding-bottom:10px;
   padding-right: 102px;
   padding-left: 102px;
-  font-size: 120%;
+  font-size: 200%;
   width: 100%;
 }
 
 .button {
-  margin-top: 25vh;
-  margin-left: 31vw;
-  /*opacity: 0.6;*/
+  margin-top: 30vh;
   z-index: -1;
-  position: relative;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 2% 3%;
 }
 
 .background {
@@ -42,15 +43,18 @@ blue: #6699cc
 }
 
 .alert {
-  margin-top: -18vh;
-  margin-left: -8vw;
-  margin-right: 25vw;
+  margin-top: -29vh;
+  position: fixed;
+  width: 150%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 2% 3%;
   z-index: 999;
-  position: relative;
-  padding: 60px 80px;
+  padding: 80px 80px;
   font-size: 120%;
   color: black;
   box-shadow: 5px 5px #888888;
+  z-index: 999;
 }
 
 .alertbackground {
@@ -59,8 +63,33 @@ blue: #6699cc
 .redbutton {
   background-color: #ff6666;
   color: white;
+  text-shadow: 0 0 2px #282828;
+  font-size: 100%;
 }
 .bluebutton {
   background-color: #6699cc;
   color: white;
+  text-shadow: 0 0 2px #282828;
+  font-size: 100%;
+}
+.message {
+  position: fixed;
+  margin-right: -10vw;
+  top: 25vh;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 150%;
+  z-index: -3;
+  text-shadow: 0 0 3px #282828;
+}
+.notified {
+  position: fixed;
+  margin-right: -17vw;
+  top: 25vh;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 150%;
+  text-shadow: 0 0 3px #282828;
 }

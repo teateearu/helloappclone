@@ -1,17 +1,20 @@
-.WelcomeMessage {
+.welcomeBackground {
   position: fixed;
-  width: 100vw;
-  height: 100vh;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
   background-color: #6699cc;
+  font-size: 120%;
 }
 
-.WelcomeMessage > div {
+.Message {
   position: fixed;
   width: 50vw;
   height: 30vh;
   top: 30vh;
   left: 50%;
-  padding: 2%;
+  padding: 5%;
   transform: translateX(-50%);
   background-color: white;
   border: 2px solid #ccffff;
@@ -19,5 +22,14 @@
   border-radius: 5px;
 }
 
-.WelcomeMessage > div h1 {
+.Message > h1 {
+  font-weight: bold;
+  font-size: 120%;
+  position: fixed;
+  top: 5vh;
+}
+
+.Message > p {
+  position: fixed;
+  top: 15vh;
 }

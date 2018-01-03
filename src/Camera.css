@@ -1,7 +1,25 @@
 .Camera {
+	position: fixed;
+	top: 0;
+	left: 5vw;
+	z-index:999;
+	width:80vw;
+}
+
+.Camera > h6 {
+	font-size: 28px;
+	color: white;
+	text-shadow: 0 0 3px #282828;
 }
 
 .Webcam {
+	position: fixed;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	top: 0;
+	left: 0;
 }
 
 .Capture {
@@ -13,4 +31,14 @@
 	color: white;
 	margin-top: 35%;
 	font-size: 28px;
+}
+
+.backbutton {
+	position: fixed;
+	bottom: 3%;
+	right: 5%;
+	border: 3px solid #ccffff;
+	padding: 2% 3%;
+	box-shadow: 5px 5px #888888;
+	font-size: 100%;
 }
