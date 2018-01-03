@@ -32,3 +32,12 @@
 	margin-top: 35%;
 	font-size: 28px;
 }
+
+.backbutton {
+	position: fixed;
+	bottom: 3%;
+	right: 5%;
+	border: 3px solid #6699cc;
+	padding: 2% 3%;
+	box-shadow: 5px 5px #888888;
+}

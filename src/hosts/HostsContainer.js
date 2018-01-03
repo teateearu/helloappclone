@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import './index.css'
-import { DropdownButton, MenuItem } from 'react-bootstrap'
+import { DropdownButton, MenuItem, Button } from 'react-bootstrap'
 import HostsDialog from './HostsDialog'
 import fetchHosts from '../actions/fetch'
 import sendEmail from '../actions/sendEmail'
@@ -33,6 +33,10 @@ class HostsContainer extends PureComponent {
     setTimeout(function(){window.location.href="/"}, 10000)
   }
 
+  backToStart() {
+    window.location.href="/";
+  }
+
   render() {
 
     return (
@@ -44,6 +48,7 @@ class HostsContainer extends PureComponent {
           </DropdownButton>
           <HostsDialog className="alert"visible={this.state.showAlert} host={this.state.host} hideAlert={this.hideAlert.bind(this)} sendEmail={this.sendEmail.bind(this)}/>
         </div>
+        <Button className="backbutton" onClick={this.backToStart}>Back to start</Button>
       </div>
     )
   }

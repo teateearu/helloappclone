@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 import './Camera.css'
 import { ProgressBar } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
 
 class Camera extends PureComponent {
 
@@ -60,6 +61,10 @@ class Camera extends PureComponent {
     this.repeat(1000, () => Promise.all([this.takePhoto()])) // 1000 miliseconds = 1 second
   }
 
+  backToStart() {
+    window.location.href="/";
+  }
+
   render() {
       const messageArr = this.props.messageArray
       console.log("MessageArray ", messageArr)
@@ -80,6 +85,7 @@ class Camera extends PureComponent {
           <div className="Camera">
             <h6>Recognize in {10 - this.props.messageArray.length}</h6>
             <ProgressBar active now={this.props.messageArray.length*10}/>
+            <Button className="backbutton" onClick={this.backToStart}>Back to start</Button>
             </div>
             <Webcam
               audio={false}
