@@ -67,7 +67,6 @@ class Camera extends PureComponent {
 
   render() {
       const messageArr = this.props.messageArray
-      console.log("MessageArray ", messageArr)
       if (messageArr.length > 0){
         const nullArray = messageArr.filter(element => element.message ===  null)
         if (nullArray.length === 10){

@@ -8,7 +8,7 @@ export default (selectedHost) => {
   return dispatch => {
 
     api.post('email/fail', {name: selectedHost})
-      .then(res => { console.log(res.body)
+      .then(res => {
         dispatch({ type: CONFIRM_EMAIL, payload: res.body })
       })
   }
