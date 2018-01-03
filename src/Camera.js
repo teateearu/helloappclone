@@ -18,7 +18,6 @@ class Camera extends PureComponent {
 
   repeat = (ms, func) => {
         var intervalID = 0
-        var messageArr = null
         new Promise(
           r => {
               intervalID = setInterval(func, ms)
