@@ -6,9 +6,9 @@ const api = new ApiClient()
 
 export default () => {
   return dispatch => {
-  
+
     api.get('hosts')
-      .then(res => { console.log(res.body)
+      .then(res => { 
         dispatch({ type: FETCHED_HOSTS, payload: res.body })
       })
 

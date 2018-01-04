@@ -117,8 +117,6 @@ export default class Webcam extends Component {
 			navigator.mediaDevices.getUserMedia ||
 			navigator.mediaDevices.webkitGetUserMedia ||
 			navigator.mediaDevices.mozGetUserMedia;
-		console.log(navigator.mediaDevices.getUserMedia);
-		console.log(navigator);
 
 		const sourceSelected = (audioSource, videoSource) => {
 			const constraints = {
@@ -132,9 +130,6 @@ export default class Webcam extends Component {
 					optional: [{ sourceId: audioSource }]
 				};
 			}
-			console.log(constraints);
-			// console.log(navigator.mediaDevices.getUserMedia);
-			console.log(navigator.getUserMedia);
 			navigator.getUserMedia(
 				constraints,
 				stream => {
@@ -200,7 +195,6 @@ export default class Webcam extends Component {
 
 			return;
 		}
-		console.log("stream", stream);
 		try {
 			const src = window.URL.createObjectURL(stream);
 			this.stream = stream;

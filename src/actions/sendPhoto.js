@@ -4,7 +4,6 @@ export const SEND_PHOTO = 'SEND_PHOTO'
 const api = new API()
 
 export default (newPhoto) => {
-  console.log(newPhoto.substring(newPhoto.length - 20, newPhoto.length))
   return (dispatch) => {
 
     api.post('recognize', {photo: newPhoto})

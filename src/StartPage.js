@@ -19,13 +19,16 @@ class StartPage extends PureComponent {
 				className="WebcamStart"/>
 				<div>
 					<h1> Welcome! </h1>
+					<h3>powered by Lightbot.io</h3>
 				</div>
+
 				<Button
 					className="Start"
 					bsSize="large"
 					onClick={this.startPage.bind(this)}>
 					Say hello to our camera
 				</Button>
+
 			</div>
 		)
 	}
